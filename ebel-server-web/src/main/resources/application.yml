@@ -3,7 +3,7 @@ server:
   port: 8181
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/ebelediye?useSSL=false&useUnicode=yes&characterEncoding=UTF-8
+    url: jdbc:mysql://localhost:3306/ebel?useSSL=false&useUnicode=yes&characterEncoding=UTF-8
     username: root
     password: root
     dbcp2:
@@ -63,7 +63,7 @@ nebula:
         mail.smtp.starttls.enable: true
 
   security:
-      path: /rest
+      path: /ebel
       authType: DB #DB or LDAP
       permittedPaths: [/ui/**]
 #      ldapConfig:
