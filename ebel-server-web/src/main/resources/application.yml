@@ -1,0 +1,79 @@
+server:
+  servlet-path: /ebel/*
+  port: 8181
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/ebelediye?useSSL=false&useUnicode=yes&characterEncoding=UTF-8
+    username: root
+    password: root
+    dbcp2:
+      validation-query: SELECT 1 FROM DUAL
+      test-while-idle: true
+      initial-size: 7
+      max-total: 20
+      pool-prepared-statements: true
+      test-on-borrow: true
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+    hibernate:
+      ddl-auto: update
+      naming:
+        strategy: org.hibernate.cfg.ImprovedNamingStrategy
+nebula:
+  assets:
+    - resourcePath: http://localhost:8081
+      uriPath: /ui/*
+      indexFile: index.html
+      assetsName: io.nebula.admin.ui
+      cached: false
+      type: http # use "classpath" or "filesystem" or "http"
+  quartz:
+    scanPackages: [com.tr.nebula.quartz.sample]
+    properties:
+      org.quartz.scheduler.instanceName: QuartzScheduler
+      org.quartz.scheduler.instanceId: AUTO
+      org.quartz.threadPool.class: org.quartz.simpl.SimpleThreadPool
+      org.quartz.threadPool.threadCount: '1'
+      org.quartz.threadPool.threadPriority: '8'
+      org.quartz.scheduler.skipUpdateCheck: false
+      org.quartz.jobStore.class: org.quartz.simpl.RAMJobStore
+  #    org.quartz.jobStore.class: org.quartz.impl.jdbcjobstore.JobStoreTX
+  #    org.quartz.jobStore.dataSource: QuarztDS
+  #    org.quartz.dataSource.myDS.driver: com.mysql.jdbc.Driver
+  #    org.quartz.dataSource.myDS.URL: jdbc:mysql://localhost:3306/robe
+  #    org.quartz.dataSource.myDS.user: root
+  #    org.quartz.dataSource.myDS.password:
+  #    org.quartz.dataSource.myDS.maxConnections: 10
+  #    org.quartz.jobStore.tablePrefix: QRTZ_
+  #    org.quartz.jobStore.driverDelegateClass: org.quartz.impl.jdbcjobstore.StdJDBCDelegate
+
+  mail:
+    mailName:
+      usernameKey: 'mail.smtp.username'
+      passwordKey: 'mail.smtp.password'
+      properties:
+        mail.smtp.username: test-name
+        mail.smtp.password: test-password
+        mail.smtp.host: smtp.live.com
+        mail.smtp.port: 25
+        mail.smtp.auth: true
+        mail.smtp.starttls.enable: true
+
+  security:
+      path: /rest
+      authType: DB #DB or LDAP
+      permittedPaths: [/ui/**]
+#      ldapConfig:
+#        host: ldap.forumsys.com
+#        port: 389
+#        domain: example.com
+#        filterDn: dc=example,dc=com
+#        filterFieldName: mail
+#        userNameAttribute: cn
+
+  report:
+    inputPath: C:/pentaho/inputPath/
+    outputPath: C:/pentaho/outputPath/
