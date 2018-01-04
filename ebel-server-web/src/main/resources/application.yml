@@ -3,9 +3,14 @@ server:
   port: 8181
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/ebel?useSSL=false&useUnicode=yes&characterEncoding=UTF-8
-    username: root
-    password: root
+    #LOCAL
+    #url: jdbc:mysql://localhost:3306/ebel?useSSL=false&useUnicode=yes&characterEncoding=UTF-8
+    #username: root
+    #password: root
+    #NEBULA SERVER
+    url: jdbc:mysql://185.71.217.38:3306/ebelediye?useSSL=false&useUnicode=yes&characterEncoding=UTF-8
+    username: ebelediye
+    password: ebelediye
     dbcp2:
       validation-query: SELECT 1 FROM DUAL
       test-while-idle: true
