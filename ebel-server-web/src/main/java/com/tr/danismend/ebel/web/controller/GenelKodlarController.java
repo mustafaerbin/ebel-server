@@ -3,6 +3,7 @@ package com.tr.danismend.ebel.web.controller;
 import com.tr.danismend.ebel.domain.GenelKodlar;
 import com.tr.danismend.ebel.domain.Tip;
 import com.tr.danismend.ebel.services.GenelKodlarServices;
+import com.tr.danismend.ebel.services.TipServices;
 import com.tr.nebula.security.core.annotation.Auth;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +20,9 @@ public class GenelKodlarController {
     @Autowired
     GenelKodlarServices genelKodlarServices;
 
+    @Autowired
+    TipServices tipServices;
+
     @Auth
     @GetMapping
     public List<GenelKodlar> findAll() {
@@ -33,5 +37,16 @@ public class GenelKodlarController {
     @PutMapping
     public GenelKodlar update(@RequestBody GenelKodlar genelKodlar) {
         return genelKodlarServices.update(genelKodlar, genelKodlar.getId());
+    }
+
+    @GetMapping(value = "/listeKod")
+    public List<GenelKodlar> listeKod() {
+
+        Tip tip = tipServices.findOne(4L);
+
+        List<GenelKodlar> byTipId = genelKodlarServices.findByTip(tip);
+
+        //List<GenelKodlar> byTipId = genelKodlarServices.findByTipId(3L);
+        return byTipId;
     }
 }
