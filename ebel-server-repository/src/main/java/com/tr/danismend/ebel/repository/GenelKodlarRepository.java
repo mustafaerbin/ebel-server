@@ -16,4 +16,5 @@ public interface GenelKodlarRepository extends JpaRepository<GenelKodlar, Long> 
     List<GenelKodlar> findByTip(Tip tip);
 
     List<GenelKodlar> findByTip_id(Long id);
+
 }

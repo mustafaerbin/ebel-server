@@ -1,5 +1,6 @@
 package com.tr.danismend.ebel.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.tr.nebula.persistence.api.criteria.ann.SearchIgnore;
 import com.tr.nebula.persistence.jpa.domain.BaseEntity;
 
@@ -15,6 +16,12 @@ import java.util.Date;
 @Table(name = "p_GenelKodlar")
 public class GenelKodlar extends BaseEntity {
 
+    @Id
+    @Column
+    @GeneratedValue
+    @JsonProperty("value")
+    private Long id;
+    @JsonProperty("label")
     private String isim;
     private String kod;
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
@@ -24,6 +31,16 @@ public class GenelKodlar extends BaseEntity {
     @NotNull
     @ManyToOne(fetch = FetchType.EAGER)
     private Tip tip;
+
+    @Override
+    public Long getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public boolean isAktif() {
         return aktif;

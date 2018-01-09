@@ -19,4 +19,12 @@ public class TipServices extends JpaService<Tip, Long> {
         super(repository);
         this.repository = repository;
     }
+
+    public Tip getNew() {
+        return new Tip();
+    }
+
+    public Tip findByKod(String kod) {
+        return repository.findByKod(kod);
+    }
 }

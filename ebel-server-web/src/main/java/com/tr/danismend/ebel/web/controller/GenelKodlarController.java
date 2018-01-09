@@ -39,14 +39,26 @@ public class GenelKodlarController {
         return genelKodlarServices.update(genelKodlar, genelKodlar.getId());
     }
 
-    @GetMapping(value = "/listeKod")
+    @GetMapping(value = "/test")
     public List<GenelKodlar> listeKod() {
 
-        Tip tip = tipServices.findOne(4L);
-
-        List<GenelKodlar> byTipId = genelKodlarServices.findByTip(tip);
+        Tip tip = tipServices.findOne(3L);
+        GenelKodlar genelKodlar = new GenelKodlar();
+        genelKodlar.setTip(tip);
+        List<GenelKodlar> byTipId = genelKodlarServices.listeGenelKodlar(genelKodlar);
 
         //List<GenelKodlar> byTipId = genelKodlarServices.findByTipId(3L);
         return byTipId;
     }
+
+    @GetMapping(value = "type-code/{code}")
+    public List<GenelKodlar> listeGenelKodlarTipKodu(@PathVariable("code") String code) {
+        return genelKodlarServices.listeGenelKodlarTipKodu(code);
+    }
+
+    @PostMapping(value = "find-generic-codes")
+    public List<GenelKodlar> listeGenelKodlar(@RequestBody GenelKodlar genelKodlar) {
+        return genelKodlarServices.listeGenelKodlar(genelKodlar);
+    }
+
 }

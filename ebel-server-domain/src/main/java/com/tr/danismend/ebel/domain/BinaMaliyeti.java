@@ -13,9 +13,9 @@ import javax.persistence.ManyToOne;
 public class BinaMaliyeti extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.EAGER)
-    private GenelKodlar tür;
+    private GenelKodlar yapiTür;
     @ManyToOne(fetch = FetchType.EAGER)
-    private GenelKodlar faliyet;
+    private GenelKodlar yapiFaliyet;
     private int yil;
     private String basit;
     private String lüks;
@@ -23,5 +23,67 @@ public class BinaMaliyeti extends BaseEntity {
     private String ikinciSinif;
     private String ucuncuSinif;
 
+    public GenelKodlar getYapiTür() {
+        return yapiTür;
+    }
 
+    public void setYapiTür(GenelKodlar yapiTür) {
+        this.yapiTür = yapiTür;
+    }
+
+    public GenelKodlar getYapiFaliyet() {
+        return yapiFaliyet;
+    }
+
+    public void setYapiFaliyet(GenelKodlar yapiFaliyet) {
+        this.yapiFaliyet = yapiFaliyet;
+    }
+
+    public int getYil() {
+        return yil;
+    }
+
+    public void setYil(int yil) {
+        this.yil = yil;
+    }
+
+    public String getBasit() {
+        return basit;
+    }
+
+    public void setBasit(String basit) {
+        this.basit = basit;
+    }
+
+    public String getLüks() {
+        return lüks;
+    }
+
+    public void setLüks(String lüks) {
+        this.lüks = lüks;
+    }
+
+    public String getBirinciSinif() {
+        return birinciSinif;
+    }
+
+    public void setBirinciSinif(String birinciSinif) {
+        this.birinciSinif = birinciSinif;
+    }
+
+    public String getIkinciSinif() {
+        return ikinciSinif;
+    }
+
+    public void setIkinciSinif(String ikinciSinif) {
+        this.ikinciSinif = ikinciSinif;
+    }
+
+    public String getUcuncuSinif() {
+        return ucuncuSinif;
+    }
+
+    public void setUcuncuSinif(String ucuncuSinif) {
+        this.ucuncuSinif = ucuncuSinif;
+    }
 }

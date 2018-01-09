@@ -34,4 +34,10 @@ public class BinaMaliyetiController {
     public BinaMaliyeti update(@RequestBody BinaMaliyeti binaMaliyeti) {
         return binaMaliyetiServices.update(binaMaliyeti, binaMaliyeti.getId());
     }
+
+    @PostMapping(value = "find-building-cost")
+    public List<BinaMaliyeti> listeBinaMaliyeti(@RequestBody BinaMaliyeti binaMaliyeti) {
+        return binaMaliyetiServices.listeBinaMaliyeti(binaMaliyeti);
+    }
+
 }
