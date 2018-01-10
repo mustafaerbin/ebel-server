@@ -1,10 +1,7 @@
 package com.tr.danismend.ebel.web.controller;
 
 import com.tr.danismend.ebel.domain.BinaMaliyeti;
-import com.tr.danismend.ebel.domain.GenelKodlar;
 import com.tr.danismend.ebel.services.BinaMaliyetiServices;
-import com.tr.danismend.ebel.services.GenelKodlarServices;
-import com.tr.nebula.security.core.annotation.Auth;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

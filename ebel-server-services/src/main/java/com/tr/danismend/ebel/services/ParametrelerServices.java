@@ -1,8 +1,8 @@
 package com.tr.danismend.ebel.services;
 
-import com.tr.danismend.ebel.domain.GenelKodlar;
+import com.tr.danismend.ebel.domain.Parametreler;
 import com.tr.danismend.ebel.domain.Tip;
-import com.tr.danismend.ebel.repository.GenelKodlarRepository;
+import com.tr.danismend.ebel.repository.ParametrelerRepository;
 import com.tr.nebula.persistence.jpa.services.JpaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
@@ -14,37 +14,37 @@ import java.util.List;
  * Created by Mustafa Erbin on 1/5/2018
  */
 @Service
-public class GenelKodlarServices extends JpaService<GenelKodlar, Long> {
+public class ParametrelerServices extends JpaService<Parametreler, Long> {
 
-    private GenelKodlarRepository repository;
+    private ParametrelerRepository repository;
 
     @Autowired
     private TipServices tipServices;
 
     @Autowired
-    public GenelKodlarServices(GenelKodlarRepository repository) {
+    public ParametrelerServices(ParametrelerRepository repository) {
         super(repository);
         this.repository = repository;
     }
 
-    public GenelKodlar getNew() {
-        return new GenelKodlar();
+    public Parametreler getNew() {
+        return new Parametreler();
     }
 
-    public List<GenelKodlar> findByTipId(Long parentOid) {
+    public List<Parametreler> findByTipId(Long parentOid) {
         return repository.findByTip_id(parentOid);
     }
 
-    public List<GenelKodlar> findByTip(Tip tip) {
+    public List<Parametreler> findByTip(Tip tip) {
         return repository.findByTip(tip);
     }
 
-    public List<GenelKodlar> listeGenelKodlarTipKodu(String tipKodu) {
+    public List<Parametreler> listeParametrelerTipKodu(String tipKodu) {
         return findByTip(tipServices.findByKod(tipKodu));
     }
 
-    public List<GenelKodlar> listeGenelKodlar(GenelKodlar genelKodlar) {
-        return repository.findAll(Example.of(genelKodlar));
+    public List<Parametreler> listeParametreler(Parametreler parametreler) {
+        return repository.findAll(Example.of(parametreler));
     }
 
 }

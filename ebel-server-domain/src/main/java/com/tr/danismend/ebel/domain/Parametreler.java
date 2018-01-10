@@ -1,20 +1,18 @@
 package com.tr.danismend.ebel.domain;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.tr.nebula.persistence.api.criteria.ann.SearchIgnore;
 import com.tr.nebula.persistence.jpa.domain.BaseEntity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.Date;
 
 /**
  * Created by Mustafa Erbin on 1/5/2018
  * Parametrik veriler
  */
 @Entity
-@Table(name = "p_GenelKodlar")
-public class GenelKodlar extends BaseEntity {
+@Table(name = "p_Parametreler")
+public class Parametreler extends BaseEntity {
 
     @Id
     @Column
@@ -25,7 +23,7 @@ public class GenelKodlar extends BaseEntity {
     private String isim;
     private String kod;
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
-    private GenelKodlar anaKod; // parent'ı
+    private Parametreler anaKod; // parent'ı
     private boolean aktif = true;
 
     @NotNull
@@ -74,11 +72,11 @@ public class GenelKodlar extends BaseEntity {
         this.tip = tip;
     }
 
-    public GenelKodlar getAnaKod() {
+    public Parametreler getAnaKod() {
         return anaKod;
     }
 
-    public void setAnaKod(GenelKodlar anaKod) {
+    public void setAnaKod(Parametreler anaKod) {
         this.anaKod = anaKod;
     }
 }

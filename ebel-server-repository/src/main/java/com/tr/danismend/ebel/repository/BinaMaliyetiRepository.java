@@ -1,7 +1,6 @@
 package com.tr.danismend.ebel.repository;
 
 import com.tr.danismend.ebel.domain.BinaMaliyeti;
-import com.tr.danismend.ebel.domain.GenelKodlar;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
