@@ -27,6 +27,9 @@ spring:
       ddl-auto: update
       naming:
         strategy: org.hibernate.cfg.ImprovedNamingStrategy
+kurum:
+  isim: Çankaya Belediyesi
+  kod: xxx
 nebula:
   assets:
     - resourcePath: http://localhost:8081
