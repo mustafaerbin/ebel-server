@@ -3,10 +3,7 @@ package com.tr.danismend.ebel.domain;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.tr.nebula.persistence.jpa.domain.BaseEntity;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by Mustafa Erbin on 1/10/2018
@@ -15,11 +12,26 @@ import javax.persistence.Table;
 @Table(name = "p_Sokak")
 public class Sokak extends BaseEntity {
 
+    @Id
+    @Column
+    @GeneratedValue
+    @JsonProperty("value")
+    private Long id;
     @JsonProperty("label")
     private String isim;
     private int kod;
     @ManyToOne(fetch = FetchType.EAGER)
     private Mahalle mahalle;
+
+    @Override
+    public Long getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getIsim() {
         return isim;

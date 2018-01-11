@@ -1,6 +1,5 @@
 package com.tr.danismend.ebel.domain;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.tr.nebula.persistence.jpa.domain.BaseEntity;
 
 import javax.persistence.Entity;
@@ -15,7 +14,6 @@ import javax.persistence.Table;
 @Table(name = "p_Ilce")
 public class Ilce extends BaseEntity {
 
-    @JsonProperty("label")
     private String isim;
     private int kod;
     @ManyToOne(fetch = FetchType.EAGER)

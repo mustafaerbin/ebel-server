@@ -4,13 +4,13 @@ server:
 spring:
   datasource:
     #LOCAL
-    url: jdbc:mysql://localhost:3306/ebel?useSSL=false&useUnicode=yes&characterEncoding=UTF-8
-    username: root
-    password: root
+    #url: jdbc:mysql://localhost:3306/ebel?useSSL=false&useUnicode=yes&characterEncoding=UTF-8
+    #username: root
+    #password: root
     #NEBULA SERVER
-    #url: jdbc:mysql://185.71.217.38:3306/ebelediye?useSSL=false&useUnicode=yes&characterEncoding=UTF-8
-    #username: ebelediye
-    #password: ebelediye
+    url: jdbc:mysql://185.71.217.38:3306/ebelediye?useSSL=false&useUnicode=yes&characterEncoding=UTF-8
+    username: ebelediye
+    password: ebelediye
     dbcp2:
       validation-query: SELECT 1 FROM DUAL
       test-while-idle: true
@@ -28,8 +28,8 @@ spring:
       naming:
         strategy: org.hibernate.cfg.ImprovedNamingStrategy
 kurum:
-  isim: Niksar Belediyesi
-  kod: 1545
+  isim: Çankaya Belediyesi
+  kod: 1231
 nebula:
   assets:
     - resourcePath: http://localhost:8081
