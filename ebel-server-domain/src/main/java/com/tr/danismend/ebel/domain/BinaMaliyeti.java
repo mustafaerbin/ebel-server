@@ -13,7 +13,7 @@ import javax.persistence.ManyToOne;
 public class BinaMaliyeti extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.EAGER)
-    private Parametreler yapiTür;
+    private Parametreler yapiTur;
     @ManyToOne(fetch = FetchType.EAGER)
     private Parametreler yapiFaliyet;
     private int yil;
@@ -23,12 +23,12 @@ public class BinaMaliyeti extends BaseEntity {
     private String ikinciSinif;
     private String ucuncuSinif;
 
-    public Parametreler getYapiTür() {
-        return yapiTür;
+    public Parametreler getYapiTur() {
+        return yapiTur;
     }
 
-    public void setYapiTür(Parametreler yapiTür) {
-        this.yapiTür = yapiTür;
+    public void setYapiTur(Parametreler yapiTur) {
+        this.yapiTur = yapiTur;
     }
 
     public Parametreler getYapiFaliyet() {
