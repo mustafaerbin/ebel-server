@@ -2,9 +2,12 @@ package com.tr.danismend.ebel.domain;
 
 import com.tr.nebula.persistence.jpa.domain.BaseEntity;
 
+import javax.persistence.Entity;
+
 /**
  * Created by Mustafa Erbin on 1/15/2018
  */
+@Entity
 public class CtvTarifesi extends BaseEntity {
 
     private int yil;

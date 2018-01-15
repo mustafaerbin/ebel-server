@@ -1,5 +1,7 @@
 package com.tr.danismend.ebel.web.controller;
 
+import com.tr.danismend.ebel.services.CtvTarifesiServices;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -9,4 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(value = "ctv")
 public class CtvTarifesiController {
+
+    @Autowired
+    CtvTarifesiServices ctvTarifesiServices;
 }
