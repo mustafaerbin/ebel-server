@@ -13,7 +13,9 @@ import java.util.List;
 @Repository
 public interface ParametrelerRepository extends JpaRepository<Parametreler, Long> {
 
-    List<Parametreler> findByTip(Tip tip);
+    List<Parametreler> findByTipOrderByIsimDesc(Tip tip);
+
+    List<Parametreler> findByTipOrderByIsimAsc(Tip tip);
 
     List<Parametreler> findByTip_id(Long id);
 

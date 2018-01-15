@@ -2,6 +2,7 @@ package com.tr.danismend.ebel.services;
 
 import com.tr.danismend.ebel.domain.Parametreler;
 import com.tr.danismend.ebel.domain.Tip;
+import com.tr.danismend.ebel.domain.enums.EnumTip;
 import com.tr.danismend.ebel.repository.ParametrelerRepository;
 import com.tr.nebula.persistence.jpa.services.JpaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +37,10 @@ public class ParametrelerServices extends JpaService<Parametreler, Long> {
     }
 
     public List<Parametreler> findByTip(Tip tip) {
-        return repository.findByTip(tip);
+        if (tip.getKod().equals(EnumTip.YIL.name()))
+            return repository.findByTipOrderByIsimDesc(tip);
+        else
+            return repository.findByTipOrderByIsimAsc(tip);
     }
 
     public List<Parametreler> listeParametrelerTipKodu(String tipKodu) {

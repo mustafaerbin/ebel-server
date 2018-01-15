@@ -29,4 +29,8 @@ public class AsinmaPayiIndirimOraniServices extends JpaService<AsinmaPayiIndirim
         return repository.findByYapiTur_Id(yaipTurId);
     }
 
+    public List<AsinmaPayiIndirimOrani> listeAsinmaPayiIndirimOrani(AsinmaPayiIndirimOrani asinmaPayiIndirimOrani) {
+        return repository.findAll(Example.of(asinmaPayiIndirimOrani));
+    }
+
 }
